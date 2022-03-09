@@ -1,0 +1,66 @@
+<h1>4. Components: excersice</h1>
+
+<h3>1) Components</h3>
+<div>{{title}}</div>
+
+<input [value]="title">
+
+<h3>2) render array properties - *ngFor</h3>
+<button (click)="buttonClickHandler()">Click me</button>
+
+<ul>
+  <li *ngFor="let user of users">
+    {{user.name}}
+  </li>
+</ul>
+
+<h3>3) Condition statements using *ngIf</h3>
+<div *ngIf="showText">Visible</div>
+
+<button (click)="toggleText()">{{showText ? 'Hide text' : 'Show Text'}}</button>
+
+<h3>4) Attach events - ($event)</h3>
+
+<div *ngIf="showEventText">Show Event Text</div>
+
+<button (click)="toggleTextEvent($event)">{{showEventText ? 'Hide text' : 'Show Text'}}</button>
+
+<h3>5) Binding Attributes</h3>
+<p>[attr.test]="title" === test="3" </p>
+<input [attr.test]="title">
+
+<p>url to an image</p>
+<img [attr.src]="imgUrl"/>
+
+<h3>6) Binding CSS classes or Specific Class Name</h3>
+<div [class]="classes" >Adding more than one class</div>
+<p>[class]="classes"</p>
+
+<h3>7) Reference and null safe operator</h3>
+<h4>7.1) Reference</h4>
+{{heading}}
+
+<input #inputElement type="text">
+
+<button (click)="changeHeadingHandler(inputElement)">Change heading</button>
+<h4>7.2) Null safe oh4erator:  </h4>
+<p>game?.title</p>
+<p>game && game.name</p>
+
+<h3>8) Types of Data binding</h3>
+<h4>8.1) From data-source to view</h4>
+<p> \\ expression \\ </p>
+<p>[target] = "expression"</p>
+<p>bind-target ="expression"</p>
+
+<h4>8.1) From view to data-source</h4>
+<p>(target) ="statement"</p>
+<p>on-target="statement"</p>
+
+<h2>Component Interaction</h2>
+
+<div>Header</div>
+<div id="content">
+  <app-user-list [userArray]="users" (addUser)="addNewUserHandler($event)"></app-user-list>
+</div>
+<div>Footer</div>
