@@ -1,0 +1,20 @@
+<div>
+  HEADER
+  <div>
+    <p>timer</p>
+    <app-time></app-time>
+  </div>
+</div>
+
+<div id="content">
+  <p>Search Input:</p>
+  <input #searchInput [class.hidden]="!users" type="text">
+  <div *ngIf="users">
+    <button (click)="reloadButtonHandler()">Reaload</button>
+    <button (click)="searchButtonHandler(searchInput)">Search</button>
+    <app-user-list [userArray]="users!"></app-user-list>
+  </div>
+  <div *ngIf="!users">Loading ...</div>
+</div>
+
+<div>FOOTER</div>
